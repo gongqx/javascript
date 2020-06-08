@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(let i = 0;i<3;i++){
+            console.log(i);
+        }
+        // for-in语句是一种精准的迭代语句，可以用来枚举对象的属性。
+        // 对象的属性没有顺序。因此，for-in循环出的属性名的顺序是不可预测的
+        for(var propName in window){
+            console.log(propName);
+        }
+    </script>
+</body>
+</html>

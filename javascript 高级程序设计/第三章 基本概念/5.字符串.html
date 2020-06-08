@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //String类型用于表示由零个或者多个16位Unicode字符组成的字符序列，即字符串。
+        //ECMAScript中的字符串是不可变的，也就是说，字符串一旦创建，它们的值就不能改变。
+        //要改变某个变量保存的字符串，首先要销毁原来的字符串，然后再用另一个包含新字符串填充该变量。
+        var lang = 'Java';
+        lang = lang +'Script';
+        //以上示例中的变量lang开始时包含字符串“Java”。而第二行代码把lang的值重新定义为“Java”与“Script”的组合。
+        //实现过程是：首先创建一个可以容纳10个字符串的新字符串，然后在这个字符串中填充“Java”和“Script”。
+        //最后一步是销毁原来的两个字符串。因为这两个字符串已经没用了。
+        var age = 11;
+        var ageAsString = age.toString();
+        //数组、布尔值、对象和字符串值（每个字符串也都有一个toString()方法，该方法返回字符串的一个副本）
+        //都有toString()方法。但null和undefined值没有这个方法。
+    </script>
+</body>
+</html>

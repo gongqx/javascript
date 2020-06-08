@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var o = new Object();
+        o.name = "xiaoxiao";
+        o.age = "17";
+        //Constructor：保存着用于创建当前对象的函数，对于前面的例子而言，构造函数就是Object()。
+        console.log(o.constructor);
+        //hasOwnProperty(propertyName):用于检查给定的属性在当前对象实例中（而不是在实例的原型中）是否存在，
+        //其中作为参数的属性名（propertyName）必须以字符串形式指定
+        console.log(o.hasOwnProperty("name"));
+        //isPrototypeOf(object):用于检查传入的对象是否是另一个对象的原型。
+        console.log(o.isPrototypeOf(Object));
+        //propertyIsEnumberable(propertyName):用于检查给定的属性是否能够使用for-in语句来枚举。
+        //作为参数的属性名（propertyName）必须以字符串形式指定
+        console.log(o.propertyIsEnumerable("name"));
+        //toLocaleString():返回对象的字符串表示，该字符串与执行环境的地区对应。
+        console.log(o.toLocaleString());
+        //toString():返回对象的字符串表示。
+        console.log(o.toString());
+        //valueOf():返回对象的字符串、数值或布尔值表示。
+        console.log(o.valueOf());
+    </script>
+</body>
+</html>
