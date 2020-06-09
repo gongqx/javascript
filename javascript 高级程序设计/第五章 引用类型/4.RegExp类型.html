@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ECMAScript通过RegExp类型来支持正则表达式。使用下面类似Perl的语法，就可以创建一个正则表达式。
+        // var expression = /patter/ flags;
+        // patter部分可以是任何简单或复杂的正则表达式，可以包含字符类、限定符、分组、向前查找以及反向引用。
+        // flags支持下列3个标志：
+        // g:表示全局模式
+        // i:表示不区分大小写模式
+        // m：表示多行模式
+        var pattern1 = /at/g;
+        // 匹配所有“at”的实例
+        var pattern2 = /[bc]at/i;
+        // 匹配第一个“bat”或者“cat”的实例
+        var pattern3 = /.at/gi;
+        // 匹配所有以“at”结尾的3个字符的组合，不区分大小写
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 引用类型的值（对象）是引用类型的一个实例。
+        // 引用类型是一种数据结构，用于将数据和功能组织在一起。
+        // 它们也常被称为类，但并不妥当。
+        // 引用类型有时也被称为对象定义，以为它们描述的是一类对象所具有的属性和方法
+        // 对象是某个特定引用类型的实例。新对象是使用new操作符后跟一个构造函数来创建的。
+        // 构造函数本身就是一个函数，只不过该函数是出于创建新对象的目的而定义的。
+        // 创建Object实例的方式有两种。
+        // 第一种使用new操作符后跟Object构造函数
+        var person = new Object();
+        person.name = 'Xinxin';
+        person.age = 27;
+        // 另一种是对象字面量的表示法。推荐只在考虑对象属性名的可读性时使用。
+        // 使用字面量来封装多个可选参数，对于那些必需值使用命名参数。
+        var person = {
+            name:'Xinxin', 
+            age:27,
+            "last name":"gong",
+            100:'score'
+        }
+        // 还可以使["name"]访问对象的属性
+        console.log(person["name"]);
+        console.log(person["last name"]);
+        console.log(person["100"]);
+    </script>
+</body>
+</html>

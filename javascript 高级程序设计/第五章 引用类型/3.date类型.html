@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Data类型的使用自UTC，1970年1月1日午夜（零时）开始经过的毫秒数来保存日期
+        // 要创建一个日期对象，使用new操作符和Date构造函数即可
+        var now = new Date();
+        var now2 = new Date("2012-09-18");
+        var now3 = new Date("May 23,2005");
+        var now4 = new Date(2008,5,12,14,35,29);
+        console.log(now2);
+        console.log(now3);
+        console.log(now4);
+        // 返回调用这个方法时的日期和时间的毫秒数
+        var start =Date.now();
+        console.log(start);
+        // 继承的方法,一般不使用
+        console.log(now.toLocaleString());
+        console.log(now.toString());
+        console.log(now.valueOf());
+        // 日期格式化方法
+        console.log(now.toDateString());
+        console.log(now.toTimeString());
+        console.log(now.toLocaleDateString());
+        console.log(now.toLocaleTimeString());
+        console.log(now.toUTCString());
+        console.log(now.toLocaleString());
+        // 日期/时间组件方法
+        var now2 = new Date();
+        console.log(now2.getTime());
+        console.log(now2.getFullYear());
+        console.log(now2.getMonth());
+        console.log(now2.getDate());
+        console.log(now2.getDay());
+        console.log(now2.getHours());
+        console.log(now2.getMinutes());
+        console.log(now2.getSeconds());
+        //都有对应的set方法
+        
+        
+        
+    </script>
+</body>
+</html>
