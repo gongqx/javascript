@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 工厂模式
+        function createPerson(name, age, job) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.job = job;
+            o.sayName = function () {
+                console.log(this.name);
+            }
+            return o;
+        }
+        var person1 = createPerson("xinxin", 27, '前端工程师');
+        var person2 = createPerson("lili", 24, '设计师');
+        person1.sayName();
+        person2.sayName();
+        // 构造函数模式
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = function () {
+                console.log(this.name);
+            };
+        }
+        var person1 = new Person("xinxin", 27, '前端工程师');
+        var person2 = new Person("lili", 24, '设计师');
+        // 和工厂模式相比：
+        // 1、没有显式地创建对象；
+        // 2、直接将属性和方法赋值给了this对象。
+        // 3、没有return语句
+        // 要创建Person的新实例，必须使用new操作符。以这种方式调用构造函数实际上会经历以下4个步骤：
+        // 1、创建一个对象；
+        // 2、将构造函数的作用域赋给新对象（因此this就指向了这个新对象）。
+        // 3、执行构造函数中的代码（为这个新对象添加属性）。
+        // 4、返回新对象。
+        // person1和person2分别保存着Person的一个不同实例。这两个对象都有一个constructor（构造函数）属性，
+        // 该属性指向Person
+        console.log(person1.constructor == Person);
+        console.log(person2.constructor == Person);
+        // 对象的constructor属性最初是用来标识对象类型的。
+        // 但是，提到检测对象类型，还是instanceof操作符更好一些。
+        console.log(person1 instanceof Object);
+        console.log(person1 instanceof Person);
+        // 将构造函数当做函数
+        // 只要通过new操作符来调用，那它就可以作为构造函数；
+        // 而任何函数，如果不通过new操作符来调用，那它跟普通函数也不会有什么两样。
+
+        // 当做构造函数使用
+        var person = new Person("lingling", 29, 'writer');
+        console.log(person.name);
+        // 作为普通函数调用
+        // 当在全局作用域中调用一个函数时，this对象总是指向Global对象（在浏览器中指向window对象）
+        Person("Greg", 23, "Doctor");
+        window.sayName();
+        // 在另一个对象的作用域中调用
+        // 也可以使用apply()在某个特殊对象的作用域中调用Person()函数。
+        var o = new Object();
+        Person.call(o, "kala", "2", "eat");
+        o.sayName();
+        // 构造函数的问题
+        // ECMAScript中的函数是对象，因此每定义一个函数，也就是实例化了一个对象。
+        console.log(person1.sayName == person2.sayName);
+        // 试着将sayName()函数定义转移到构造函数外部
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = sayName;
+        }
+
+        function sayName() {
+            console.log(this.name);
+        }
+        var person1 = new Person('lisa', 38, 'mom');
+        var person2 = new Person('zuazua', 38, 'papa');
+        person1.sayName();
+        // 上面这样是在全局作用域中定义函数来实现被某个对象的调用。没有丝毫封装可言。
+    </script>
+</body>
+
+</html>
