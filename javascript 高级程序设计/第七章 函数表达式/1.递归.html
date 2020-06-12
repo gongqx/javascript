@@ -27,8 +27,11 @@
         var functionName = function (arg1, arg2, arg3) {
             //函数体
         }
-        // 理解函数提升的关键，就是理解函数声明与函数表达式之间的区别
-        // 递归函数是在一个函数通过名字调用自身的情况下构成的。
+        // 理解函数提升的关键，就是理解函数声明与函数表达式之间的区别。
+        // 能够创建函数再赋值给变量，也就能够把函数作为其他函数的值返回。
+
+        // 1.递归函数
+        // 是在一个函数通过名字调用自身的情况下构成的。
         // 非严格模式下
         function factorial1(num) {
             if (num <= 1) {
@@ -50,7 +53,7 @@
         //闭包
         // 闭包是指有权访问另一个函数作用域中的变量的函数。就是在一个函数内部创建另一个函数
         // 之所以还能访问到propertyName这个变量，
-        // 是因为内部函数的作用域链中包含createComparisonFunction()的作用域
+        // 是因为内部函数的作用域链中包含createComparisonFunction()的作用域。
         function createComparisonFunction(propertyName){
             return function(object1,object2){
                 var value1 = object1[propertyName];

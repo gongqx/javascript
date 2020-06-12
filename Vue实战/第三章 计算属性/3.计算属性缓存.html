@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {}
+        })
+    // 既然有methods方法，为什么还要用computed（计算属性）呢
+    //  原因是：计算属性是基于它的依赖缓存的。
+    //  一个计算属性所依赖的数据发生变化时，它才会重新取值，所以只要text不变，计算属性也不更新。
+    // 使用计算属性还是methods取决于你是否需要缓存。
+    </script>
+</body>
+
+</html>

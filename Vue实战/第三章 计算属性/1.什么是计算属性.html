@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{reversedText}}</p>
+        <p>fullName：{{fullName}}</p>
+        <p><button @click="changeName">改名字</button></p>
+    </div>
+    <div id="app2"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                text: '456,789'
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Jack',
+                lastName: 'Green'
+            },
+            methods: {
+                changeName: function () {
+                    this.firstName = 'qx';
+                    this.lastName = 'gong';
+                }
+            },
+            computed: {
+                reversedText: function () {
+                    // 默认只用了getter来读取
+                    return app2.text.split(',').reverse().join(',');
+                },
+                fullName: {
+                    get: function () {
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    set: function (newValue) {
+                        var names = newValue.split(' ');
+                        this.firstName = names[0] + '_';
+                        this.lastName = names[names.length - 1];
+                    }
+                }
+            },
+            created() {
+
+            },
+            mounted() {
+
+            },
+            updated() {
+
+            },
+            destroy() {
+
+            }
+        });
+        // 所有的计算属性都是以函数的形式写在Vue实例内的computed选项内，最终返回计算后的结果。
+        // 每个计算属性都包含一个getter和一个setter,setter属性不多用
+        // 两个实用的小技巧：
+        // 一是计算属性可以依赖其他计算属性;
+        // 二是计算属性不仅可以依赖当前Vue实例，还可以依赖其他实例的数据
+    </script>
+</body>
+
+</html>
