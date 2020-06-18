@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(book,index) in books" :key="index">{{index}}--{{book.name}}</li>
+        </ul>
+        <ul>
+            <li v-for="value in user">{{key}}-{{value}}</li>
+        </ul>
+        <ul>
+            <li v-for="n in 10">{{n}}</li>
+        </ul>
+        数组更新
+        Vue包含了一组观察数组变异的方法，使用它们会改变数组也会触发视图更新
+        push()
+        pop()
+        shift()
+        unshift()
+        spilce()
+        sort()
+        reverse()
+        有些方法是不会改变原数组的
+        filter()
+        concat()
+        slice()
+        <ul>
+            <template v-for="book in filterBooks">
+                <li>{{book.name}}</li>
+            </template>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                books:[
+                    {name:'《实战1》'},
+                    {name:'《实战2》'},
+                    {name:'《实战3》'},
+                    {name:'《实战4》'},
+                ],
+                user:{
+                    name:'lili',
+                    age:12,
+                    relationship:'sister'
+                },
+                booksArr:[
+                    {name:"实战",author:'liangshu'},
+                    {name:"JavaScript指南",author:'Douglas'},
+                    {name:"JavaScript程设",author:'Nicholas'}
+                ]
+            },
+            computed:{
+                filterBooks:function(){
+                    return this.booksArr.filter(function(book){
+                        return book.name.match(/JavaScript/);
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

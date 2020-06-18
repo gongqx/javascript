@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <div>
+            <p v-if='status==1'>1</p>
+            <p v-else-if='status==2'>2</p>
+            <p v-else>other</p>
+            <template v-if="flag==4">
+                <p>文本</p>
+                <p>文本</p>
+                <p>文本</p>
+            </template>
+            <template v-else>
+                <p>DOM元素不存在</p>
+            </template>
+            <!-- Vue在渲染元素时，出于效率考虑，会尽肯能地复用已有的元素而非重新渲染。 -->
+            <!-- 在v-if中如果不希望这么做，可以使用Vue.js提供的key属性，key的值是唯一的。 -->
+        </div>
+        <div v-show='showFlag == 3'>
+            <p>v-show</p>
+            <p>v-show</p>
+            <p>v-show</p>
+        </div>
+        <!-- v-show是改变元素的css属性display。当v-show表达式的值为false时，元素会隐藏。 -->
+        <!-- 在DOM的结构上会看到元素上的加载了内联样式：display:none; -->
+        <!-- v-if才是真正的条件渲染，它会根据表达式适当的销毁或重建元素及绑定的事件或子组件。 -->
+        <!-- v-show只是简单的CSS属性切换，无论条件真与否，都会被编译。 -->
+        <!-- 相比之下，v-if更适合条件不经常改变的场景。v-show适用于频繁切换条件 -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                status: 3,
+                flag: 3,
+                showFlag: 3
+            }
+        })
+    </script>
+</body>
+
+</html>

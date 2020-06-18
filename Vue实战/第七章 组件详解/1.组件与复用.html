@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Card style="width:350px">
+            <p slot="title">聊天中</p>
+            <a href="" slot="extra">
+                <Icon type="android-close" size="18"></Icon>
+            </a>
+            <div style="height:100px"></div>
+            <div>
+                <!-- <Row :gutter="16">
+                    <i-col span='17'>
+                        <i-input v-model="value"></i-input>
+                    </i-col>
+                    <i-col span='4'>
+                        <i-button type="primary" icon="paper-airplane">发送</i-button>
+                    </i-col>
+                </Row> -->
+            </div>
+            <div><my-component></my-component></div>
+        </Card>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // template的DOM结构必须被一个元素包含
+        // 组件中还可以像Vue实例那样使用其他的选项，比如data.computed.methods
+        // 在使用data时，和实例稍有区别，data必须是函数，然后将数据return出去
+        Vue.component('my-component',{
+            template:'<div>组件内容</div>'
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {}
+        })
+    </script>
+</body>
+
+</html>

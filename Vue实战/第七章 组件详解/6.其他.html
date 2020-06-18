@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="showDiv" v-if="showDiv">文本文本</div>
+        <button @click="getText">获取内容</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                showDiv: false
+            },
+            methods: {
+                getText: function () {
+                    this.showDiv = true;
+                    // DOM操作更新完成之后再去执行
+                    this.$nextTick(function () {
+                        var text = document.getElementById('showDiv').innerHTML;
+                        console.log(text);
+                    })
+
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
