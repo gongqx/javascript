@@ -1,0 +1,8 @@
+/.vs
+/node_modules
+/dist/
+target
+.idea
+package-lock.json
+launch.json
+.vscode/
