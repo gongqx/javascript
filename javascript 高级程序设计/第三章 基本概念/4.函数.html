@@ -32,6 +32,10 @@
         //使用length属性来确定传递进来多少个参数。
         //可以多少弥补重载的特性。
         function doAdd(num1,num2,num3){
+
+            console.log(arguments);
+            console.log(arguments instanceof Object);
+            
             if(arguments.length ==1){
                 console.log(arguments[0]+10);
             }else if(arguments.length == 2){
@@ -45,7 +49,8 @@
         doAdd(30,50);
         doAdd(10,30,60);
         //每次执行add函数都会重写第二个参数，将第二个参数值修改为10，
-        //因为arguments对象中的值会自动反映到对应的命名参数，所以修改arguments[1],也就修改了num2，结果它们的值都会变成10。
+        //因为arguments对象中的值会自动反映到对应的命名参数，
+        //所以修改arguments[1],也就修改了num2，结果它们的值都会变成10。
         //但是他们的内存空间是独立的，但他们的值会同步，修改命名参数不会改变arguments中对应的值。
         //如果只传入了一个参数，那么为arguments[1]的值不会传递到命名参数中，
         //这是因为arguments对象的长度是由传入的参数的个数决定的。
@@ -53,7 +58,8 @@
             arguments[0]=10;
             console.log(num1+num2);
         }
-        add(23);
+        // add(23);
+        add(23,34);
     </script>
 </body>
 
