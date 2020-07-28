@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <child-component>
+            <p>分发的内容</p>
+        </child-component> -->
+        <child-name>
+            <div class="container">
+                <div slot="header">标题</div>
+                <p>正文</p>
+                <p>正文2</p>
+                <p>正文3</p>
+                <div slot="footer">尾部</div>
+            </div>
+            <child-name>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // Vue.component('child-component', {
+        //     template: '<div><p>子组件本身的元素</p><slot><p>如果没有父组件插入内容，这将默认出现</p></slot></div>',
+        //     data: function () {
+        //         return {
+        //             message: 'world'
+        //         }
+        //     }
+        // });
+        Vue.component('child-name', {
+            template: `<div class="mai">
+                <div class="header">
+                    <slot name="header"></slot>
+                </div>
+                <div class="main">
+                    <slot></slot>
+                </div>
+                <div class="footer">
+                    <slot name="footer"></slot>
+                </div>
+            </div>`
+        });
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "hello"
+            }
+        })
+    </script>
+</body>
+
+</html>

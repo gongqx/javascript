@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter3</title>
+</head>
+
+<body>
+    <!-- <div>计算属性是基于它的依赖缓存，一个计算属性所依赖的数据发生变化时，它才会重新取值，
+        所以text只要不改变，计算属性也就不更新。</div> -->
+    <!-- <div>这里的 Date.now（）不是响应式依赖，所以计算属性 now 不会更新。但是 methods 则不同，只要
+        重新渲染，它就会被调用，因此函数也会被执行
+        使用计算属性还是 methods 取决于你是否需要缓存，当遍历大数组和做大量计算时，应当使用
+        计算属性，除非你不希望得到缓存。</div> -->
+    <div id="app">
+        <p>{{now}}</p>
+        <p>{{now2}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                now:'0000',
+                now2:"xxxxx"
+            },
+            created(){
+                this.getTime();
+                this.comtime();
+            },
+            computed:{
+                comtime(){
+                    this.now = Date.now();
+                }
+            },
+            methods:{
+                getTime(){
+                    this.now2 = Date.now();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

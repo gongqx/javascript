@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter4</title>
+</head>
+<body>
+    <div id="app">
+        <div class="static" :class="{'active':isActive}">Color</div>
+        <div :class="classes">Array</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                isActive:true,
+                classesActive:'array'
+            },
+            computed:{
+                classes:function(){
+                    return {
+                        'text-fail':this.classesActive == 'array'
+                    }
+                }
+            }
+        })
+    </script>
+    <style>
+        .static{
+            font-size:20px;
+        }
+        .active{
+            color:aquamarine;
+        }
+        .text-fail{
+            color:blanchedalmond;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

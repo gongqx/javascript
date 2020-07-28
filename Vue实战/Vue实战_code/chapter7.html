@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter7</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component :warning-text='bindword'></my-component>
+        <my-child></my-child>
+        <div>{{message}}</div>
+        <component-a></component-a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var bus = new Vue();
+        Vue.component('component-a',{
+            template:'<button @click="handleEvent">传递事件</button>',
+            methods:{
+                handleEvent:function(){
+                    bus.$emit('on-message','component-a的内容');
+                }
+            }
+        });
+        Vue.component('my-component',{
+            props:['warningText'],
+            template:'<div>{{warningText}}</div>'
+        });
+        var child = {
+            template:'<div>局部注册组件</div>'
+        }
+        var app = new Vue({
+            el: '#app',
+            data:{
+                bindword:'父组件的数据',
+                message:''
+            },
+            mounted:function(){
+                var self = this;
+                bus.$on('on-message',function(msg){
+                    self.message = msg;
+                })
+            },
+            components:{
+                'my-child':child
+            }
+        });
+    </script>
+</body>
+
+</html>

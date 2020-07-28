@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter5</title>
+</head>
+<body>
+    <div id="app">
+        <div class="show" v-show="showFlag">v-show</div>
+        <div class="ifif" v-if="ifFlag">v-if</div>
+        <div>过滤与排序</div>
+        <ul>
+            <template v-for="book in sortedBooks">
+                <li>书名：{{book.name}}</li>
+                <li>作者：{{book.author}}</li>
+            </template>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                showFlag:false,
+                ifFlag:false,
+                books:[
+                    {
+                        name:'《vue实战》',
+                        author:'梁灏'
+                    },
+                    {
+                        name:'《javascript语言精粹》',
+                        author:'Douglas'
+                    },
+                    {
+                        name:'《语言精粹》',
+                        author:'Zakas'  
+                    }
+                ]
+            },
+            computed:{
+                filterBooks:function(){
+                    return this.books.filter(function(book){
+                        return book.name.match(/javascript/);
+                    });
+                },
+                sortedBooks:function(){
+                    return  this.books.sort(function(a,b){
+                        return a.name.length > b.name.length;
+                        // useless
+                    });
+                }
+            },
+
+        })
+    </script>
+</body>
+</html>

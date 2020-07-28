@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter</title>
+</head>
+<body>
+    <div id="app">
+        <div id="div" v-if="showDiv">文本</div>
+        <button @click="getText">获取文本</button>
+        <div>Vue 在观察到数据变化时并不是直接更新 DOM，而是开启 一个队列，并缓冲在同一事件循环
+            中发生的所有数据改变。在缓冲时会去除重复数据，从而避免不必要的计算和 DOM 操作。然后，
+            在下一个事件循环 tick 中， Vue 刷新队列井执行实际（己去重的）工作。所以如果你用一个 for
+            环来动态改变数据 100•次，其实它只会应用最后一次改变，如果没有这种机制， DOM 就要重绘 100
+            次，这固然是一个很大的开销。</div>
+            <div>手动挂载实例</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                showDiv:false
+            },
+            methods:{
+                getText:function(){
+                    this.showDiv = true;
+                    this.$nextTick(function(){
+                        var text = document.getElementById('div').innerHTML;
+                        console.log('get',text);
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
